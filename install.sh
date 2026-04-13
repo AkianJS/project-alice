@@ -91,7 +91,8 @@ case "$INSTALL_TYPE" in
     ;;
   dmg)
     info "Mounting DMG..."
-    MOUNT_POINT=$(hdiutil attach "$TMPDIR/$FILENAME" -nobrowse -quiet | tail -1 | awk '{print $NF}')
+    MOUNT_POINT=$(hdiutil attach "$TMPDIR/$FILENAME" -nobrowse | grep '/Volumes/' | awk -F'\t' '{print $NF}')
+    [ -z "$MOUNT_POINT" ] && fail "Failed to mount DMG."
     APP_PATH=$(find "$MOUNT_POINT" -name "*.app" -maxdepth 1 | head -1)
 
     if [ -z "$APP_PATH" ]; then
