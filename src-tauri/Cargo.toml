@@ -23,7 +23,7 @@ uuid = { version = "1", features = ["v4"] }
 thiserror = "2"
 rusqlite = { version = "0.32", features = ["bundled"] }
 portable-pty = "0.8"
-git2 = { version = "0.19", features = ["vendored-libgit2"] }
+git2 = { version = "0.19", features = ["vendored-libgit2", "vendored-openssl"] }
 notify = "7"
 notify-debouncer-mini = "0.5"
 log = "0.4"
