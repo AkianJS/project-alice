@@ -76,6 +76,7 @@ impl PtyManager {
         // correctly when the child exits.
         drop(pair.slave);
 
+        #[allow(unused_mut)]
         let mut writer = pair
             .master
             .take_writer()
